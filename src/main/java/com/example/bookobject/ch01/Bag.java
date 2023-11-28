@@ -2,8 +2,8 @@ package com.example.bookobject.ch01;
 
 public class Bag {
     private Long amount;
-    private Invitation invitation;
     private Ticket ticket;
+    private Invitation invitation;
 
     public Bag(Long amount) {
         this(null, amount);
@@ -14,19 +14,23 @@ public class Bag {
         this.amount = amount;
     }
 
-    public boolean hasInvitation() {
+    public Long hold(Ticket ticket) {
+        this.ticket = ticket;
+
+        if (hasInvitation()) {
+            return 0L;
+        }
+
+        minusAmount(ticket.getFee());
+
+        return ticket.getFee();
+    }
+
+    private boolean hasInvitation() {
         return invitation != null;
     }
 
-    public boolean hasTicket() {
-        return ticket != null;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
-    public void minusAmount(Long amount) {
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
