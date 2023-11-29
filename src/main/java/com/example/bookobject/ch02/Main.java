@@ -10,6 +10,12 @@ public class Main {
     public static void main(String[] args) {
         Movie avatar = createAvatar();
         Movie titanic = createTitanic();
+        Movie starWars = createStarWars();
+    }
+
+    private static Movie createStarWars() {
+        DiscountPolicy discountPolicy = new NoneDiscountPolicy();
+        return new Movie("스타워즈", Duration.ofMinutes(210), Money.wons(10000), discountPolicy);
     }
 
     private static Movie createAvatar() {

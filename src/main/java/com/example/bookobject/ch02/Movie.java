@@ -20,6 +20,7 @@ public class Movie {
     }
 
     public Money calculateMovieFee(Screening screening) {
+        // if (discountPolicy == null) {} => 협력의 설계 측면에서 좋지 않은 선택이다. NoneDiscountPolicy를 사용하면 된다.
         return fee.minus(discountPolicy.calculateDiscountAmount(screening));
     }
 }
