@@ -26,7 +26,7 @@ public class Main {
                 new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(20, 59))
         };
 
-        DiscountPolicy discountPolicy = new AmountDiscountPolicy(Money.wons(800), discountConditions);
+        DefaultDiscountPolicy discountPolicy = new AmountDiscountPolicy(Money.wons(800), discountConditions);
         return new Movie("아바타", Duration.ofMinutes(120), Money.wons(10000), discountPolicy);
     }
 
@@ -37,7 +37,7 @@ public class Main {
                 new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10, 0), LocalTime.of(13, 59))
         };
 
-        DiscountPolicy discountPolicy = new PercentDiscountPolicy(0.1, discountConditions);
+        DefaultDiscountPolicy discountPolicy = new PercentDiscountPolicy(0.1, discountConditions);
         return new Movie("타이타닉", Duration.ofMinutes(180), Money.wons(11000), discountPolicy);
     }
 }
