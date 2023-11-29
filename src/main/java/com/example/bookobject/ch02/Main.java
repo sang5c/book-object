@@ -9,6 +9,8 @@ import java.time.LocalTime;
 public class Main {
     public static void main(String[] args) {
         Movie avatar = createAvatar();
+        avatar.changeDiscountPolicy(new PercentDiscountPolicy(0.1, new SequenceCondition(1), new SequenceCondition(10)));
+
         Movie titanic = createTitanic();
         Movie starWars = createStarWars();
     }
